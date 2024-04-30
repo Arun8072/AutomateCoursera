@@ -10,7 +10,7 @@ var questions = document.querySelectorAll('[role="group"]');
 console.log(questions);
 //worked6- loop through question
 for (let l= 0; l < questions.length; l++) { 
-//console.log("question"); 
+//console.log("questions"); 
 console.log(questions[l]); 
 
 //got all four options
@@ -46,7 +46,7 @@ console.log("submitted");
     
 //feedback loop
 
-//  var questions = document.querySelectorAll('[role="group"]');
+ //var questions = document.querySelectorAll('[role="group"]');
  // answer=[]; 
 for (let j= 0; j < questions.length; j++) {
  var ans=[]; answer.push(ans);
