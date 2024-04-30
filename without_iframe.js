@@ -4,9 +4,9 @@ details = {};
 answers=[];
 q_count=0,q_other=0, repeated=false;
 
-var styles,styleSheet,anim_elm,box,y,z,flies,r=0;
+
 function anim(){
- styles = `h1{-webkit-animation:tracking-in-contract-bck 2s cubic-bezier(.215,.61,.355,1.000) both;animation:tracking-in-contract-bck 2s cubic-bezier(.215,.61,.355,1.000) both}@-webkit-keyframes tracking-in-contract-bck{0%{letter-spacing:1em;-webkit-transform:translateZ(400px);transform:translateZ(400px);opacity:0}40%{opacity:.6}100%{-webkit-transform:translateZ(0);transform:translateZ(0);opacity:1}}@keyframes tracking-in-contract-bck{0%{letter-spacing:1em;-webkit-transform:translateZ(400px);transform:translateZ(400px);opacity:0}40%{opacity:.6}100%{-webkit-transform:translateZ(0);transform:translateZ(0);opacity:1}}   .breadcrumb-list{-webkit-animation:slide-in-left 2s cubic-bezier(.25,.46,.45,.94) both;animation:slide-in-left 2s cubic-bezier(.25,.46,.45,.94) both}@-webkit-keyframes slide-in-left{0%{-webkit-transform:translateX(-1000px);transform:translateX(-1000px);opacity:0}100%{-webkit-transform:translateX(0);transform:translateX(0);opacity:1}}@keyframes slide-in-left{0%{-webkit-transform:translateX(-1000px);transform:translateX(-1000px);opacity:0}100%{-webkit-transform:translateX(0);transform:translateX(0);opacity:1}}    #bf,#box{width:30px;height:30px;border-radius:50%;margin-radius:50%;z-index:100}#box{transition:20s;transition-origin:top right;}#bf{transition:1s;transition-origin:top right;}`;
+ styles = `h1{-webkit-animation:tracking-in-contract-bck 2s cubic-bezier(.215,.61,.355,1.000) both;animation:tracking-in-contract-bck 2s cubic-bezier(.215,.61,.355,1.000) both}@-webkit-keyframes tracking-in-contract-bck{0%{letter-spacing:1em;-webkit-transform:translateZ(400px);transform:translateZ(400px);opacity:0}40%{opacity:.6}100%{-webkit-transform:translateZ(0);transform:translateZ(0);opacity:1}}@keyframes tracking-in-contract-bck{0%{letter-spacing:1em;-webkit-transform:translateZ(400px);transform:translateZ(400px);opacity:0}40%{opacity:.6}100%{-webkit-transform:translateZ(0);transform:translateZ(0);opacity:1}}   .breadcrumb-list{-webkit-animation:slide-in-left 2s cubic-bezier(.25,.46,.45,.94) both;animation:slide-in-left 2s cubic-bezier(.25,.46,.45,.94) both}@-webkit-keyframes slide-in-left{0%{-webkit-transform:translateX(-1000px);transform:translateX(-1000px);opacity:0}100%{-webkit-transform:translateX(0);transform:translateX(0);opacity:1}}@keyframes slide-in-left{0%{-webkit-transform:translateX(-1000px);transform:translateX(-1000px);opacity:0}100%{-webkit-transform:translateX(0);transform:translateX(0);opacity:1}}    #bf,#box{width:40px;height:40px;margin-radius:50%;z-index:100}#box{transition:20s;transition-origin:top right;}#bf{transition:1s;transition-origin:top right;}`;
 
  styleSheet =  document.createElement("style");
 styleSheet.innerText = styles;
@@ -14,7 +14,7 @@ document.head.appendChild(styleSheet);
 
   var box = document.createElement("div");
   box.id = "box";
-  box.innerHTML = `<img id="bf"  src="https://img1.picmix.com/output/stamp/normal/3/4/7/2/1042743_e47a4.gif" alt="butterfly" >`;
+  box.innerHTML = `<img id="bf"  src="https://img1.picmix.com/output/stamp/normal/8/3/0/1/511038_e048a.gif" alt="butterfly" >`;
   document.body.appendChild(box);
 
 document.onmousemove = function(e) { 
@@ -30,7 +30,26 @@ document.onmousemove = function(e) {
     document.getElementById('box').style.marginLeft  = y+"px";
     document.getElementById('box').style.marginTop  = z+"px";
      }//mousemove
-  flies=["https://usagif.com/wp-content/uploads/butterfly-animation-34.gif","https://usagif.com/wp-content/uploads/butterfly-animation-32.gif","https://usagif.com/wp-content/uploads/butterfly-animation-11.gif","https://usagif.com/wp-content/uploads/butterfly-animation-22.gif","https://usagif.com/wp-content/uploads/butterfly-animation-7.gif","https://usagif.com/wp-content/uploads/butterfly-animation-39.gif","https://usagif.com/wp-content/uploads/butterfly-animation-102.gif","https://img1.picmix.com/output/stamp/normal/3/4/7/2/1042743_e47a4.gif","https://img1.picmix.com/output/stamp/normal/8/3/0/1/511038_e048a.gif","https://img1.picmix.com/output/stamp/normal/4/4/7/2/1042744_d1f2d.gif"];
+  flies=["https://media2.giphy.com/media/2tPqUNNSMlm9AvaTZq/giphy.gif",
+"https://usagif.com/wp-content/uploads/butterfly-animation-34.gif",
+"https://media0.giphy.com/media/4wPh33Ba3uIwHFBEpm/giphy.gif",
+"https://usagif.com/wp-content/uploads/butterfly-animation-7.gif",
+"https://media.tenor.com/ymJxN50WiYUAAAAi/fly.gif",
+"https://img1.picmix.com/output/stamp/normal/0/5/7/2/1042750_d9d98.gif",
+"https://media.tenor.com/7Hj05MfuDlwAAAAi/spyro-flying.gif",
+"https://usagif.com/wp-content/uploads/butterfly-animation-22.gif",
+"https://media.tenor.com/UiLQ_TyR6MMAAAAi/iron-man.gif",
+"https://usagif.com/wp-content/uploads/butterfly-animation-11.gif",
+"https://media.tenor.com/VAVV7yR41DgAAAAi/dm4uz3-foekoe.gif",
+"https://img1.picmix.com/output/stamp/normal/3/4/7/2/1042743_e47a4.gif",
+"https://media0.giphy.com/media/3w9clKT1DtjN6QFqbd/giphy.gif",
+"https://usagif.com/wp-content/uploads/butterfly-animation-102.gif",
+"https://media.tenor.com/0syKkLiZIc4AAAAi/dicedreams-dice-dream.gif",
+"https://usagif.com/wp-content/uploads/butterfly-animation-32.gif",
+"https://media.tenor.com/d2Al9q8OhbIAAAAi/poptin-popups.gif",
+"https://usagif.com/wp-content/uploads/butterfly-animation-39.gif",
+"https://derpicdn.net/img/2018/3/18/1684310/full.gif",
+"https://media3.giphy.com/media/fcHYqOoPJChN2TqfvL/giphy.gif"];
 document.getElementById('bf').addEventListener("click", (event) => {
   document.getElementById('bf').src=flies[r];
  if(r<flies.length-1){ r++;}else{r=0;}
@@ -38,7 +57,6 @@ document.getElementById('bf').addEventListener("click", (event) => {
 
 }//anim
 anim();
-
 
 
 //worked - looped through all weeks
