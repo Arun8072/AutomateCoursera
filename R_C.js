@@ -255,7 +255,7 @@ if((!(percent_got==(100-percent_other)))&&(percent_got<80)){
 }//if
 });
   
-}//fun-quiz
+}//func-quiz
 
 quiz();
 
