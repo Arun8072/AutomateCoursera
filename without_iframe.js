@@ -160,11 +160,11 @@ await new Promise(r => setTimeout(r,3000));
     }else if(details["category"+w_now+p].includes("Quiz")){
       console.log("Quiz");
       answers=[]; //empty answer array before every quiz
-    if(parseInt(document.querySelector("div[data-test='grade-percent']").textContent)<80){ 
-      quiz();
+    if(parseInt(document.querySelector("div[data-test='grade-percent']").textContent)>=80){ 
+      next_btn.click();
+      solve();
      }else{
-       next_btn.click();
-       solve();
+      quiz();
      }
     }else {
       console.log("other");
@@ -289,14 +289,14 @@ if(feedback[o].textContent.includes("Correct")){
   }//for
 // }//for
 console.log("answer_array"); console.log(answers);
-/* if(answers.length!==questions.length){
+if(answers.length!==questions.length){
   console.log("answers count mistake"); } //if
 
 // worked- attempt tryagain
 var attempt_btn = document.querySelector('div[data-e2e="AttemptPageTopBanner"]').querySelector("button");
     console.log(attempt_btn);
     attempt_btn.click();
-*/
+
 
   } , 6000); //feedbacking
  } , 6000); //submitting
