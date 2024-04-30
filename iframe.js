@@ -63,23 +63,23 @@ new_array.
 	
 //worked - got all topic link
 const link_pelement = document.querySelectorAll('div[data-test="WeekSingleItemDisplay-lecture"]');
-console.log(links);
+console.log(link_pelement);
 var links = []; 
-for(var k=0; k<links.length;k++){
+for(var k=0; k<link_pelement.length;k++){
 var link_url= link_pelement[k].childNodes[0].getAttribute("href");
 links.push(link_url);
 console.log(links[k]);
 }//for
 
 //worked-opened iframe
-var link="/learn/what-is-the-metaverse/lecture/7dRj9/this-is-the-metaverse";
-var link = "/learn/what-is-the-metaverse/supplement/VWtge/field-trip-explore-virtual-social-experiences-in-the-metaverse";
+//var links="/learn/what-is-the-metaverse/lecture/7dRj9/this-is-the-metaverse";
+var links = "/learn/what-is-the-metaverse/supplement/S7xQm/field-trip-the-creator-economy";
 
 var iframe_window = document.createElement("iframe");
-	iframe_window.src=link;
+	iframe_window.src=links;
 	//setting attributes
-	iframe_window.width = "70%"; 
-	iframe_window.height = "30%";
+	iframe_window.width = "50%"; 
+	iframe_window.height = "25%";
 	iframe_window.frameBorder = "0";
 	iframe_window.scrolling = "0";
 	//setting style 
@@ -96,10 +96,17 @@ var iframe_window = document.createElement("iframe");
 //document.body.appendChild(substack); //this line works but it away from the display in this site
 
 document.querySelector('[data-test="rc-periodPage"]').appendChild(iframe_window);
-const iframe_content = iframe_window.contentWindow.document;
-let v = "variable worked";
+//const iframe_content = iframe_window.contentWindow.document;
+let v = "iframe opened";
 iframe_window.onload = function() {
   console.log(v);
-};
-
+ setTimeout(function() {
+const iframe_content = iframe_window.contentWindow.document;
+console.log(iframe_content);
+const read_btn = iframe_content.querySelector('button[data-testid="mark-complete"]');
+read_btn.click();
+console.log("marked as read");
+ }, 7000); 
+  
+};//onload
 

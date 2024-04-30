@@ -83,7 +83,8 @@ if(feedback[k].textContent.includes("Correct")){
      }//if
   }//if
   }//for
-answer.length=questions.length;
+if(answer.length!==questions.length){
+  console.log("answer count mistake"); } //if
 
 
  // worked- attempt tryagain
@@ -95,6 +96,6 @@ var attempt_btn = document.querySelector('div[data-e2e="AttemptPageTopBanner"]')
 //worked- clicked try again
  var try_again = document.querySelector('a[aria-labelledby ="Try again"]');
  try_again.click();
-  } , 3000);
- } , 5000);
+  } , 3000); //feedbacking
+ } , 5000); //submitting
  
