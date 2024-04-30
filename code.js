@@ -1,17 +1,29 @@
-//12 may- 9:30 - 11:30 ,12:30-3:45
-//13 may= 12:00 - 1:30,4:30-5:30 , 10:45 - 1:30
-//14may= 4:40-6:15 , 10:15-12:00
-//15may= 9:05-11:00
+//12 may = 9:30 - 11:30 ,12:30-3:45
+//13 may = 12:00 - 1:30,4:30-5:30 , 10:45 - 1:30
+//14may = 4:40-6:15 , 10:15-12:00
+//15may = 9:05-11:00
 //17may = 12:30-2:30,3-4,5:45-6:30, 12:50-1:00,
-//18may= 9:20-1:30
+//18may = 9:20-1:30
 //19may = 3:00-5:00
 //20may = 1:00-2:30,3:00-6:00,7:20-8:00,
+//22may = 1:45-2:15
+//23may = 1:40-2:20,
+//24may = 1:35-2;05,6:00-7:00
+//25May = 4:35-4:45,5:00-6:30,11:15-11:45,1:40-
+3:25
+//worked - combination of three buttons , select which is present
+const try_start_resume_btn = document.querySelector('a[aria-labelledby ="Try again"]') || document.querySelector('button[aria-labelledby="Start assignment"]') || document.querySelector('button[aria-labelledby="Resume assignment"]') ;
+try_start_resume_btn.click();
+console.log("opened");
 
-//use iframe to switch between videos
-
-//worked1 - opened
-const start_btn = document.querySelector('button[aria-labelledby="Resume assignment"]');
+//worked- quiz start button
+const start_btn = document.querySelector('button[aria-labelledby="Start assignment"]');
 start_btn.click();
+console.log("opened");
+
+//worked1 - opened quiz modal
+const resume_btn = document.querySelector('button[aria-labelledby="Resume assignment"]');
+resume_btn.click();
 console.log("opened");
 
 
@@ -20,14 +32,14 @@ const agree_btn = document.querySelector('span[id="agreement-checkbox-base-label
 agree_btn.click();
 console.log("agreed");
 
-//worked-delyed
+//worked-delyed submission
 setTimeout(function submitting() {
-    
+ 
     const submit_btn = document.querySelector('button[data-test="submit-button"]');
 submit_btn.click();
 console.log("submitted");
     
- } , 2000);
+ } , 1000);
 
 //worked3-submitted
 const submit_btn = document.querySelector('button[data-test="submit-button"]');
@@ -68,7 +80,7 @@ var form = document.querySelector('#QpopdD-legend');
 var elements = form.elements;
 console.log(elements[1]);
 
-//worked
+
 var form_in = document.querySelectorAll("input");
 console.log(form_in);
 
@@ -180,8 +192,8 @@ if(feedback.includes("Correct")){
     console.log(options);
     
     // worked-got options text
-     var option_text = options[0].parentElement.textContent;
-    console.log(option_text);
+     var options_text = options[0].parentElement.textContent;
+    console.log(options_text);
     
     
     
@@ -275,7 +287,7 @@ var slider = document.querySelector('[aria-label ="Video Progress"]');
   
 // element.classList.add("hovering");
 //var slider = document.querySelector('[class ="base-track"]');
-//;  console.log(slider);
+//  console.log(slider);
  // slider.classList.add("hovering");
  
 setTimeout(function() {
@@ -326,3 +338,18 @@ const media = document.querySelector("video");
 media.currentTime = Math.floor(media.duration)-3;
 console.log(media.currentTime);
 media.play();
+
+
+
+
+//worked- clicked try again
+ var try_again = document.querySelector('a[aria-labelledby ="Try again"]');
+ try_again.click();
+
+
+//worked - got options text but already coded
+/*
+var options_text= question.querySelectorAll(".rc-Option");
+    console.log(options_text);
+console.log(options_text[i].textContent);
+*/
