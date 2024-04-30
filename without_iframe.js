@@ -1,8 +1,15 @@
-var link_pelement,category_txts,crumbs,w_now,s_now,read_btn,media,completed_txt,try_start_resume_btn,questions,options,option_type,agree_btn,submit_btn,feedback,options_text,attempt_btn,spans,NOanswer;
+var link_pelement,category_txts,crumbs,w_now,s_now,read_btn,media,completed_txt,try_start_resume_btn,questions,options,option_type,agree_btn,submit_btn,feedback,options_text,attempt_btn,spans,NOanswer,styles,styleSheet,anim_elm;
 var w,x,p,l,h,k,j,m,o,s;
 details = {};
 answers=[];
 q_count=0,q_other=0, repeated=false;
+
+ styles = `h1{-webkit-animation:tracking-in-contract-bck 2s cubic-bezier(.215,.61,.355,1.000) both;animation:tracking-in-contract-bck 2s cubic-bezier(.215,.61,.355,1.000) both}@-webkit-keyframes tracking-in-contract-bck{0%{letter-spacing:1em;-webkit-transform:translateZ(400px);transform:translateZ(400px);opacity:0}40%{opacity:.6}100%{-webkit-transform:translateZ(0);transform:translateZ(0);opacity:1}}@keyframes tracking-in-contract-bck{0%{letter-spacing:1em;-webkit-transform:translateZ(400px);transform:translateZ(400px);opacity:0}40%{opacity:.6}100%{-webkit-transform:translateZ(0);transform:translateZ(0);opacity:1}}   .breadcrumb-list{-webkit-animation:slide-in-left 2s cubic-bezier(.25,.46,.45,.94) both;animation:slide-in-left 2s cubic-bezier(.25,.46,.45,.94) both}@-webkit-keyframes slide-in-left{0%{-webkit-transform:translateX(-1000px);transform:translateX(-1000px);opacity:0}100%{-webkit-transform:translateX(0);transform:translateX(0);opacity:1}}@keyframes slide-in-left{0%{-webkit-transform:translateX(-1000px);transform:translateX(-1000px);opacity:0}100%{-webkit-transform:translateX(0);transform:translateX(0);opacity:1}}`;
+
+ styleSheet =  document.createElement("style");
+styleSheet.innerText = styles;
+document.head.appendChild(styleSheet);
+
 
 
 //worked - looped through all weeks
@@ -78,8 +85,9 @@ next_btn=document.querySelector("a[aria-label='Next Item']");
      await new Promise(r => setTimeout(r,1500));
       //The HTMLMediaElement API is used for video controls
       // time is calculated in seconds
-console.log(media.currentTime);
-console.log(media.duration);
+//console.log(media.currentTime);
+//console.log(media.duration);
+anime_jello();
    /*   media.currentTime = Math.floor(media.duration-50);
   await new Promise(r => setTimeout(r,1000));
     media.currentTime = Math.floor(media.duration-5);
@@ -92,7 +100,9 @@ await new Promise(r => setTimeout(r,3000));
       console.log("Reading");
        read_btn = document.querySelector('button[data-testid="mark-complete"]');
        if(read_btn){
+         //anime
        read_btn.click();
+  await new Promise(r => setTimeout(r,500));
        }
         completed_txt = document.querySelector('div[data-testid="completed-text"]');
        if(completed_txt){
@@ -379,6 +389,16 @@ solve();
   
 }//func-quiz
 
+
+function anime_jello() { 
+ styles = `.jello-vertical{-webkit-animation:jello-vertical .9s both;animation:jello-vertical .9s both}@-webkit-keyframes jello-vertical{0%{-webkit-transform:scale3d(1,1,1);transform:scale3d(1,1,1)}30%{-webkit-transform:scale3d(.75,1.25,1);transform:scale3d(.75,1.25,1)}40%{-webkit-transform:scale3d(1.25,.75,1);transform:scale3d(1.25,.75,1)}50%{-webkit-transform:scale3d(.85,1.15,1);transform:scale3d(.85,1.15,1)}65%{-webkit-transform:scale3d(1.05,.95,1);transform:scale3d(1.05,.95,1)}75%{-webkit-transform:scale3d(.95,1.05,1);transform:scale3d(.95,1.05,1)}100%{-webkit-transform:scale3d(1,1,1);transform:scale3d(1,1,1)}}@keyframes jello-vertical{0%{-webkit-transform:scale3d(1,1,1);transform:scale3d(1,1,1)}30%{-webkit-transform:scale3d(.75,1.25,1);transform:scale3d(.75,1.25,1)}40%{-webkit-transform:scale3d(1.25,.75,1);transform:scale3d(1.25,.75,1)}50%{-webkit-transform:scale3d(.85,1.15,1);transform:scale3d(.85,1.15,1)}65%{-webkit-transform:scale3d(1.05,.95,1);transform:scale3d(1.05,.95,1)}75%{-webkit-transform:scale3d(.95,1.05,1);transform:scale3d(.95,1.05,1)}100%{-webkit-transform:scale3d(1,1,1);transform:scale3d(1,1,1)}}`;
+
+ styleSheet =  document.createElement("style");
+styleSheet.innerText = styles;
+document.head.appendChild(styleSheet);
+anim_elm = document.querySelector(".rc-VideoMiniPlayer");
+anim_elm.classList.add("jello-vertical");
+}//func-jello
 
 }//func-solve
 }//func-complete
