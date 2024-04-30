@@ -66,10 +66,11 @@ const link_pelement = document.querySelectorAll('div[data-test="WeekSingleItemDi
 console.log(link_pelement);
 var links = []; 
 for(var k=0; k<link_pelement.length;k++){
+
 var link_url= link_pelement[k].childNodes[0].getAttribute("href");
 links.push(link_url);
 console.log(links[k]);
-}//for
+} //for
 
 //worked-opened iframe
 //var links="/learn/what-is-the-metaverse/lecture/7dRj9/this-is-the-metaverse";
@@ -97,9 +98,9 @@ var iframe_window = document.createElement("iframe");
 
 document.querySelector('[data-test="rc-periodPage"]').appendChild(iframe_window);
 //const iframe_content = iframe_window.contentWindow.document;
-let v = "iframe opened";
+
 iframe_window.onload = function() {
-  console.log(v);
+  console.log("iframe opened");
  setTimeout(function() {
 const iframe_content = iframe_window.contentWindow.document;
 console.log(iframe_content);
@@ -110,3 +111,140 @@ console.log("marked as read");
   
 };//onload
 
+
+
+
+//worked - got all topic link
+
+//const link_pelement = document.querySelectorAll('.rc-WeekItemAnnotations').previousSibling;
+//console.log(link_pelement);
+const reading_txts = document.querySelectorAll('.rc-WeekItemAnnotations');
+console.log(reading_txts);
+var links = []; 
+for(var k=0; k<reading_txts.length;k++){
+
+// var link_url= link_pelement[k].childNodes[0].getAttribute("href");
+var link_url=reading_txts[k].previousSibling.textContent;
+links.push(link_url);
+console.log(k+links[k]);
+var reading_txt = reading_txts[k].textContent;
+if(reading_txt.includes("Video")){
+    console.log("video");
+}else if(reading_txt.includes("Reading")){
+console.log("reading");
+}else if(reading_txt.includes("Quiz")){
+    console.log("Quiz");
+}else{
+ console.log("Other");
+}//else
+} //for
+
+//worked-opened iframe
+//var links="/learn/what-is-the-metaverse/lecture/7dRj9/this-is-the-metaverse";
+ var links = "/learn/what-is-the-metaverse/supplement/S7xQm/field-trip-the-creator-economy";
+setTimeout(function() {
+var iframe_window = document.createElement("iframe");
+	iframe_window.src=links;
+	//setting attributes
+	iframe_window.width = "50%"; 
+	iframe_window.height = "25%";
+	iframe_window.frameBorder = "0";
+	iframe_window.scrolling = "0";
+	//setting style 
+	iframe_window.style.border= "none";
+	iframe_window.style.background = "white";
+	iframe_window.style.position = "fixed";
+  iframe_window.style.overflow = "auto";
+  iframe_window.style.zIndex = "1";
+	iframe_window.style.left = "30%";
+  iframe_window.style.bottom = "20%";
+//	iframe_window.style.width = "100%";
+//	iframe_window.style.height = "100%";
+	
+//document.body.appendChild(substack); //this line works but it away from the display in this site
+
+document.querySelector('[data-test="rc-periodPage"]').appendChild(iframe_window);
+//const iframe_content = iframe_window.contentWindow.document;
+
+iframe_window.onload = function() {
+  console.log("iframe opened");
+ setTimeout(function() {
+const iframe_content = iframe_window.contentWindow.document;
+console.log(iframe_content);
+const read_btn = iframe_content.querySelector('button[data-testid="mark-complete"]');
+read_btn.click();
+console.log("marked as read");
+ }, 8000*(k+1)); 
+
+};//onload
+}, 12000 *(k+1)); 
+
+
+
+// worked - got all topics and their category
+const link_pelement= document.querySelectorAll('div[role="presentation"]');
+console.log(link_pelement);
+const reading_txts = document.querySelectorAll('.rc-WeekItemAnnotations');
+console.log(reading_txts);
+var links = []; 
+for(var k=0; k<reading_txts.length;k++){
+
+var link_url= link_pelement[k+4].childNodes[0].getAttribute("href");
+var link_txt=reading_txts[k].previousSibling.textContent;
+links.push(link_url);
+console.log(k+link_txt);
+console.log(links[k]);
+var reading_txt = reading_txts[k].textContent;
+if(reading_txt.includes("Video")){
+    console.log("video");
+}else if(reading_txt.includes("Reading")){
+  create_iframe(links[k]);
+console.log(k+"reading");
+}else if(reading_txt.includes("Quiz")){
+    console.log("Quiz");
+}else{
+ console.log("Other");
+}//else
+} //for
+
+function create_iframe(links){
+  console.log(links);
+setTimeout(function() {
+  console.log(links);
+var iframe_window = document.createElement("iframe");
+	iframe_window.src=links;
+	//setting attributes
+	iframe_window.width = "50%"; 
+	iframe_window.height = "25%";
+	iframe_window.frameBorder = "0";
+	iframe_window.scrolling = "0";
+	//setting style 
+	iframe_window.style.border= "none";
+	iframe_window.style.background = "white";
+	iframe_window.style.position = "fixed";
+  iframe_window.style.overflow = "auto";
+  iframe_window.style.zIndex = "1";
+	iframe_window.style.left = "30%";
+  iframe_window.style.bottom = "20%";
+//	iframe_window.style.width = "100%";
+//	iframe_window.style.height = "100%";
+	
+//document.body.appendChild(substack); //this line works but it away from the display in this site
+
+document.querySelector('[data-test="rc-periodPage"]').appendChild(iframe_window);
+//const iframe_content = iframe_window.contentWindow.document;
+
+iframe_window.onload = function() {
+  console.log("iframe opened");
+ setTimeout(function() {
+const iframe_content = iframe_window.contentWindow.document;
+console.log(iframe_content);
+const read_btn = iframe_content.querySelector('button[data-testid="mark-complete"]');
+//read_btn.click();
+console.log("marked as read");
+ }, 8000*(k+1)); 
+
+};//onload
+return;
+}, 12000 *(k+1)); 
+} //func create_iframe

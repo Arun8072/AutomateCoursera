@@ -13,7 +13,8 @@
 //26may = 6:00-7:30,
 //29may = 8:20-8:50,
 //14jun = 5-6,7:00-7:15
-//15jun = 5:15-
+//15jun = 5:15-6:30
+//16jun = 1:00-2:15,5:15-5;30,6:45-
 
 //worked - combination of three buttons , select which is present
 const try_start_resume_btn = document.querySelector('a[aria-labelledby ="Try again"]') || document.querySelector('button[aria-labelledby="Start assignment"]') || document.querySelector('button[aria-labelledby="Resume assignment"]') ;
@@ -262,7 +263,7 @@ for(var j=0;j<weeks.length;j++){
   console.log(slider);
   slider.setAttribute("aria-valuenow","100");
 
-var slider-time=document.querySelector('[class ="current-time-display"]').innerText;
+var slider_time=document.querySelector('[class ="current-time-display"]').innerText;
  console.log(slider_time);
 var slider_time = document.querySelector('[class ="duration-display"]').innerText;
   console.log(slider_time);
