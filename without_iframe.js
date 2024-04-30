@@ -1,10 +1,9 @@
-var link_pelement,category_txts,crumbs,w_now,s_now,read_btn,media,completed_txt;
-var w,x,p;
-details = { };
+var link_pelement,category_txts,crumbs,w_now,s_now,read_btn,media,completed_txt,try_start_resume_btn,questions,options,option_type,agree_btn,submit_btn,feedback,options_text,attempt_btn,spans,NOanswer;
+var w,x,p,l,h,k,j,m,o,s;
+details = {};
 answers=[];
-var try_start_resume_btn,questions,options,option_type,agree_btn,submit_btn,feedback,options_text,attempt_btn,spans,NOanswer;
-var l,h,k,j,m,o,s;
 q_count=0,q_other=0, repeated=false;
+
 
 //worked - looped through all weeks
 const weeks = document.querySelectorAll('a[data-test="rc-WeekNavigationItem"]');
@@ -12,8 +11,8 @@ const weeks = document.querySelectorAll('a[data-test="rc-WeekNavigationItem"]');
 console.log(weeks);
 
 async function complete() {
-//weeks.length-1
-for ( w = 0; w>=0 ; w--) {
+
+for ( w = weeks.length-1; w>=0 ; w--) {
 weeks[w].click();
 await new Promise(r => setTimeout(r,2500));
 
@@ -50,7 +49,7 @@ details["link00"].click();
 solve();
 async function solve() {
 
-//8000
+
 await new Promise(r => setTimeout(r,9000));
 
 crumbs=document.getElementsByClassName('breadcrumb-item');
@@ -81,11 +80,12 @@ next_btn=document.querySelector("a[aria-label='Next Item']");
       // time is calculated in seconds
 console.log(media.currentTime);
 console.log(media.duration);
-      media.currentTime = Math.floor(media.duration-50);
-  await new Promise(r => setTimeout(r,500));
-      media.currentTime = Math.floor(media.duration);
+   /*   media.currentTime = Math.floor(media.duration-50);
+  await new Promise(r => setTimeout(r,1000));
+    media.currentTime = Math.floor(media.duration-5);
+  await new Promise(r => setTimeout(r,1000));  */media.currentTime = Math.floor(media.duration);
       console.log("Video played");
-await new Promise(r => setTimeout(r,2000));
+await new Promise(r => setTimeout(r,3000));
       next_btn.click();
       solve();
     }else if(details["category"+w_now+p]=="Reading"){
@@ -102,8 +102,13 @@ await new Promise(r => setTimeout(r,2000));
        solve();
     }else if(details["category"+w_now+p].includes("Quiz")){
       console.log("Quiz");
+      answers=[]; //empty answer array before every quiz
+    if(parseInt(document.querySelector("div[data-test='grade-percent']").textContent)<80){ 
       quiz();
-      
+     }else{
+       next_btn.click();
+       solve();
+     }
     }else {
       console.log("other");
       next_btn.click();
@@ -236,7 +241,7 @@ var attempt_btn = document.querySelector('div[data-e2e="AttemptPageTopBanner"]')
     attempt_btn.click();
 */
 
-  } , 5000); //feedbacking
+  } , 6000); //feedbacking
  } , 6000); //submitting
 return answers;
 }//func-modal
@@ -314,23 +319,23 @@ function quiz() {
 
 Promise.resolve()
   .then(() => modal(0,"checkbox"))
-  .then(() => delay(13000))
+  .then(() => delay(14000))
   .then(() => modal(0,"radio"))
-  .then(() => delay(13000))
+  .then(() => delay(14000))
   .then(() => modal(1,"radio"))
-  .then(() => delay(13000))
+  .then(() => delay(14000))
   .then(() => modal(2,"radio"))
-  .then(() => delay(13000))
+  .then(() => delay(14000))
   .then(() => modal(3,"radio"))
-  .then(() => delay(13000))
+  .then(() => delay(14000))
   .then(() => select_answer())
-  .then(() => delay(9000))
+  .then(() => delay(14000))
   .then(function() {
   
 console.log("repeated function");
 //repeated == false at starting if all the possible questions are not graded , loop continues to second time and  set repeated==true to prevent from more than two loop
   if(repeated==false){
-console.log("repeated");
+console.log("repeating");
     spans = document.querySelectorAll("div>span");
  //   grade is in span at top section so we get it few loop
 for (s= 0;s < spans.length;s++) {
@@ -359,15 +364,23 @@ console.log( (!(percent_got==(100-percent_other)))&&(percent_got<80) );
 if((!(percent_got==(100-percent_other)))&&(percent_got<80)){
   repeated=true;
   quiz();
-}//if  //else{ next_btn.click(); }
-}//if
-})
-.then( );
+}else{ console.log("passed, next"); 
+//if you are passed at first attempt then moved to next
+next_btn.click(); 
+solve();
+  }//else
+}else{ console.log("reapted, next"); 
+//after repeatation it moved to next
+next_btn.click(); 
+solve();
+  }//else
+});//then
+
   
 }//func-quiz
 
 
 }//func-solve
-}//fun
+}//func-complete
 complete();
 
