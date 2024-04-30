@@ -1,14 +1,43 @@
-var link_pelement,category_txts,crumbs,w_now,s_now,read_btn,media,completed_txt,try_start_resume_btn,questions,options,option_type,agree_btn,submit_btn,feedback,options_text,attempt_btn,spans,NOanswer,styles,styleSheet,anim_elm;
-var w,x,p,l,h,k,j,m,o,s;
+var link_pelement,category_txts,crumbs,w_now,s_now,read_btn,media,completed_txt,try_start_resume_btn,questions,options,option_type,agree_btn,submit_btn,feedback,options_text,attempt_btn,spans,NOanswer,styles,styleSheet,anim_elm,box,flies;
+var w,x,p,l,h,k,j,m,o,s,y,z,r=0;
 details = {};
 answers=[];
 q_count=0,q_other=0, repeated=false;
 
- styles = `h1{-webkit-animation:tracking-in-contract-bck 2s cubic-bezier(.215,.61,.355,1.000) both;animation:tracking-in-contract-bck 2s cubic-bezier(.215,.61,.355,1.000) both}@-webkit-keyframes tracking-in-contract-bck{0%{letter-spacing:1em;-webkit-transform:translateZ(400px);transform:translateZ(400px);opacity:0}40%{opacity:.6}100%{-webkit-transform:translateZ(0);transform:translateZ(0);opacity:1}}@keyframes tracking-in-contract-bck{0%{letter-spacing:1em;-webkit-transform:translateZ(400px);transform:translateZ(400px);opacity:0}40%{opacity:.6}100%{-webkit-transform:translateZ(0);transform:translateZ(0);opacity:1}}   .breadcrumb-list{-webkit-animation:slide-in-left 2s cubic-bezier(.25,.46,.45,.94) both;animation:slide-in-left 2s cubic-bezier(.25,.46,.45,.94) both}@-webkit-keyframes slide-in-left{0%{-webkit-transform:translateX(-1000px);transform:translateX(-1000px);opacity:0}100%{-webkit-transform:translateX(0);transform:translateX(0);opacity:1}}@keyframes slide-in-left{0%{-webkit-transform:translateX(-1000px);transform:translateX(-1000px);opacity:0}100%{-webkit-transform:translateX(0);transform:translateX(0);opacity:1}}`;
+var styles,styleSheet,anim_elm,box,y,z,flies,r=0;
+function anim(){
+ styles = `h1{-webkit-animation:tracking-in-contract-bck 2s cubic-bezier(.215,.61,.355,1.000) both;animation:tracking-in-contract-bck 2s cubic-bezier(.215,.61,.355,1.000) both}@-webkit-keyframes tracking-in-contract-bck{0%{letter-spacing:1em;-webkit-transform:translateZ(400px);transform:translateZ(400px);opacity:0}40%{opacity:.6}100%{-webkit-transform:translateZ(0);transform:translateZ(0);opacity:1}}@keyframes tracking-in-contract-bck{0%{letter-spacing:1em;-webkit-transform:translateZ(400px);transform:translateZ(400px);opacity:0}40%{opacity:.6}100%{-webkit-transform:translateZ(0);transform:translateZ(0);opacity:1}}   .breadcrumb-list{-webkit-animation:slide-in-left 2s cubic-bezier(.25,.46,.45,.94) both;animation:slide-in-left 2s cubic-bezier(.25,.46,.45,.94) both}@-webkit-keyframes slide-in-left{0%{-webkit-transform:translateX(-1000px);transform:translateX(-1000px);opacity:0}100%{-webkit-transform:translateX(0);transform:translateX(0);opacity:1}}@keyframes slide-in-left{0%{-webkit-transform:translateX(-1000px);transform:translateX(-1000px);opacity:0}100%{-webkit-transform:translateX(0);transform:translateX(0);opacity:1}}    #bf,#box{width:30px;height:30px;border-radius:50%;margin-radius:50%;z-index:100}#box{transition:20s;transition-origin:top right;}#bf{transition:1s;transition-origin:top right;}`;
 
  styleSheet =  document.createElement("style");
 styleSheet.innerText = styles;
 document.head.appendChild(styleSheet);
+
+  var box = document.createElement("div");
+  box.id = "box";
+  box.innerHTML = `<img id="bf"  src="https://img1.picmix.com/output/stamp/normal/3/4/7/2/1042743_e47a4.gif" alt="butterfly" >`;
+  document.body.appendChild(box);
+
+document.onmousemove = function(e) { 
+  
+      if(y>e.clientX){ 
+        document.getElementById('bf').style.transform ="rotateY(180deg)" ;
+      }else if(y<e.clientX){ 
+        document.getElementById('bf').style.transform ="rotateY(360deg)" ;
+      }
+             y = e.clientX; 
+             z = e.clientY; 
+      //  console.log(x+","+y);
+    document.getElementById('box').style.marginLeft  = y+"px";
+    document.getElementById('box').style.marginTop  = z+"px";
+     }//mousemove
+  flies=["https://usagif.com/wp-content/uploads/butterfly-animation-34.gif","https://usagif.com/wp-content/uploads/butterfly-animation-32.gif","https://usagif.com/wp-content/uploads/butterfly-animation-11.gif","https://usagif.com/wp-content/uploads/butterfly-animation-22.gif","https://usagif.com/wp-content/uploads/butterfly-animation-7.gif","https://usagif.com/wp-content/uploads/butterfly-animation-39.gif","https://usagif.com/wp-content/uploads/butterfly-animation-102.gif","https://img1.picmix.com/output/stamp/normal/3/4/7/2/1042743_e47a4.gif","https://img1.picmix.com/output/stamp/normal/8/3/0/1/511038_e048a.gif","https://img1.picmix.com/output/stamp/normal/4/4/7/2/1042744_d1f2d.gif"];
+document.getElementById('bf').addEventListener("click", (event) => {
+  document.getElementById('bf').src=flies[r];
+ if(r<flies.length-1){ r++;}else{r=0;}
+});//click
+
+}//anim
+anim();
 
 
 
