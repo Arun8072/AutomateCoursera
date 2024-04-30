@@ -1,3 +1,4 @@
+//completed
 var link_pelement,category_txts,crumbs,w_now,s_now,read_btn,media,completed_txt,try_start_resume_btn,questions,options,option_type,agree_btn,submit_btn,feedback,options_text,attempt_btn,spans,NOanswer,styles,styleSheet,anim_elm,box,flies;
 var w,x,p,l,h,k,j,m,o,s,y,z,r=0;
 details = {};
@@ -6,7 +7,7 @@ q_count=0,q_other=0, repeated=false;
 
 
 function anim(){
- styles = `h1{-webkit-animation:tracking-in-contract-bck 2s cubic-bezier(.215,.61,.355,1.000) both;animation:tracking-in-contract-bck 2s cubic-bezier(.215,.61,.355,1.000) both}@-webkit-keyframes tracking-in-contract-bck{0%{letter-spacing:1em;-webkit-transform:translateZ(400px);transform:translateZ(400px);opacity:0}40%{opacity:.6}100%{-webkit-transform:translateZ(0);transform:translateZ(0);opacity:1}}@keyframes tracking-in-contract-bck{0%{letter-spacing:1em;-webkit-transform:translateZ(400px);transform:translateZ(400px);opacity:0}40%{opacity:.6}100%{-webkit-transform:translateZ(0);transform:translateZ(0);opacity:1}}   .breadcrumb-list{-webkit-animation:slide-in-left 2s cubic-bezier(.25,.46,.45,.94) both;animation:slide-in-left 2s cubic-bezier(.25,.46,.45,.94) both}@-webkit-keyframes slide-in-left{0%{-webkit-transform:translateX(-1000px);transform:translateX(-1000px);opacity:0}100%{-webkit-transform:translateX(0);transform:translateX(0);opacity:1}}@keyframes slide-in-left{0%{-webkit-transform:translateX(-1000px);transform:translateX(-1000px);opacity:0}100%{-webkit-transform:translateX(0);transform:translateX(0);opacity:1}}    #bf,#box{width:40px;height:40px;margin-radius:50%;z-index:100}#box{transition:20s;transition-origin:top right;}#bf{transition:1s;transition-origin:top right;}`;
+ styles = `h1{-webkit-animation:tracking-in-contract-bck 2s cubic-bezier(.215,.61,.355,1.000) both;animation:tracking-in-contract-bck 2s cubic-bezier(.215,.61,.355,1.000) both}@-webkit-keyframes tracking-in-contract-bck{0%{letter-spacing:1em;-webkit-transform:translateZ(400px);transform:translateZ(400px);opacity:0}40%{opacity:.6}100%{-webkit-transform:translateZ(0);transform:translateZ(0);opacity:1}}@keyframes tracking-in-contract-bck{0%{letter-spacing:1em;-webkit-transform:translateZ(400px);transform:translateZ(400px);opacity:0}40%{opacity:.6}100%{-webkit-transform:translateZ(0);transform:translateZ(0);opacity:1}}   .breadcrumb-list{-webkit-animation:slide-in-left 2s cubic-bezier(.25,.46,.45,.94) both;animation:slide-in-left 2s cubic-bezier(.25,.46,.45,.94) both}@-webkit-keyframes slide-in-left{0%{-webkit-transform:translateX(-1000px);transform:translateX(-1000px);opacity:0}100%{-webkit-transform:translateX(0);transform:translateX(0);opacity:1}}@keyframes slide-in-left{0%{-webkit-transform:translateX(-1000px);transform:translateX(-1000px);opacity:0}100%{-webkit-transform:translateX(0);transform:translateX(0);opacity:1}}    #bf,#box{width:45px;height:45px;margin-radius:50%;z-index:100}#box{transition:20s;transition-origin:top right;}#bf{transition:1s;transition-origin:top right;}`;
 
  styleSheet =  document.createElement("style");
 styleSheet.innerText = styles;
@@ -14,7 +15,7 @@ document.head.appendChild(styleSheet);
 
   var box = document.createElement("div");
   box.id = "box";
-  box.innerHTML = `<img id="bf"  src="https://img1.picmix.com/output/stamp/normal/8/3/0/1/511038_e048a.gif" alt="" >`;
+  box.innerHTML = `<img id="bf"  src="https://media.tenor.com/ymJxN50WiYUAAAAi/fly.gif" alt="butterfly" >`;
   document.body.appendChild(box);
 
 document.onmousemove = function(e) { 
@@ -30,20 +31,7 @@ document.onmousemove = function(e) {
     document.getElementById('box').style.marginLeft  = y+"px";
     document.getElementById('box').style.marginTop  = z+"px";
      }//mousemove
-  flies=["https://media.tenor.com/ymJxN50WiYUAAAAi/fly.gif",
-"https://img1.picmix.com/output/stamp/normal/0/5/7/2/1042750_d9d98.gif",
-"https://media.tenor.com/7Hj05MfuDlwAAAAi/spyro-flying.gif",
-"https://media.tenor.com/UiLQ_TyR6MMAAAAi/iron-man.gif",
-"https://media.tenor.com/VAVV7yR41DgAAAAi/dm4uz3-foekoe.gif",
-"https://img1.picmix.com/output/stamp/normal/3/4/7/2/1042743_e47a4.gif",
-"https://media.tenor.com/0syKkLiZIc4AAAAi/dicedreams-dice-dream.gif",
-"https://media.tenor.com/d2Al9q8OhbIAAAAi/poptin-popups.gif",
-"https://derpicdn.net/img/2018/3/18/1684310/full.gif"];
-document.getElementById('bf').addEventListener("click", (event) => {
-  document.getElementById('bf').src=flies[r];
- if(r<flies.length-1){ r++;}else{r=0;}
-});//click
-
+  
 }//anim
 anim();
 
@@ -57,7 +45,7 @@ async function complete() {
 
 for ( w = weeks.length-1; w>=0 ; w--) {
 weeks[w].click();
-await new Promise(r => setTimeout(r,2500));
+await new Promise(r => setTimeout(r,10000));
 
   console.log("weeks "+ w);
    // weeks[j].childNodes[0].click();
@@ -93,7 +81,7 @@ solve();
 async function solve() {
 
 
-await new Promise(r => setTimeout(r,9000));
+await new Promise(r => setTimeout(r,20000));
 
 crumbs=document.getElementsByClassName('breadcrumb-item');
 w_now=crumbs[1].textContent.match(/\d+/);
@@ -118,7 +106,7 @@ next_btn=document.querySelector("a[aria-label='Next Item']");
        media = document.querySelector("video");
        console.log(media);
        media.play();
-     await new Promise(r => setTimeout(r,1500));
+     await new Promise(r => setTimeout(r,2000));
       //The HTMLMediaElement API is used for video controls
       // time is calculated in seconds
 //console.log(media.currentTime);
@@ -127,9 +115,10 @@ anime_jello();
    /*   media.currentTime = Math.floor(media.duration-50);
   await new Promise(r => setTimeout(r,1000));
     media.currentTime = Math.floor(media.duration-5);
-  await new Promise(r => setTimeout(r,1000));  */media.currentTime = Math.floor(media.duration);
+  await new Promise(r => setTimeout(r,1000));  */
+  media.currentTime = Math.floor(media.duration);
       console.log("Video played");
-await new Promise(r => setTimeout(r,3000));
+await new Promise(r => setTimeout(r,10000));
       next_btn.click();
       solve();
     }else if(details["category"+w_now+p]=="Reading"){
@@ -138,7 +127,7 @@ await new Promise(r => setTimeout(r,3000));
        if(read_btn){
          //anime
        read_btn.click();
-  await new Promise(r => setTimeout(r,500));
+  await new Promise(r => setTimeout(r,10000));
        }
         completed_txt = document.querySelector('div[data-testid="completed-text"]');
        if(completed_txt){
@@ -155,8 +144,23 @@ await new Promise(r => setTimeout(r,3000));
      }else{
       quiz();
      }
+    }else if(details["category"+w_now+p]=="Discussion Prompt"){
+        console.log("Discussion Prompt");
+        next_btn.click();
+        solve();
     }else {
       console.log("other");
+      
+      read_btn = document.querySelector('button[data-testid="mark-complete"]');
+       if(read_btn){
+         //anime
+       read_btn.click();
+  await new Promise(r => setTimeout(r,10000));
+       }
+        completed_txt = document.querySelector('div[data-testid="completed-text"]');
+       if(completed_txt){
+         console.log("Completed reading"); }
+       
       next_btn.click();
       solve();
     }//if
@@ -166,8 +170,9 @@ function modal(i,category) {
 console.log("loop"+i);
  try_start_resume_btn = document.querySelector('a[aria-labelledby ="Try again"]') || document.querySelector('button[aria-labelledby="Start assignment"]') || document.querySelector('button[aria-labelledby="Resume assignment"]') ;
 try_start_resume_btn.click();
-
-setTimeout(function submitting() {
+submitting();
+async function submitting() {
+ await new Promise(r => setTimeout(r,15000));
   console.log("opened");
 //worked- selected all questions
  questions = document.querySelectorAll('[class="rc-FormPartsQuestion"]');
@@ -209,10 +214,19 @@ console.log(questions[l]);
       }//for
 
      }//if
-  }//if
+  }else{
+    q_other+=1;
+  }//elseif
   }//for
 
-
+q_count=questions.length;
+console.log("q_count,q_other");
+console.log(q_count+","+q_other);
+if(q_count<=q_other){
+    next_btn.click(); 
+    solve();
+    return;
+}
 //worked2 - agreed
  agree_btn = document.querySelector('span[id="agreement-checkbox-base-label-text"]');
 agree_btn.click();
@@ -226,9 +240,12 @@ submit_btn.click();
 console.log("submitted");
     
 //feedback loop
-setTimeout(function feedbacking() {
+feedbacking();
+async function feedbacking() {
  //var questions = document.querySelectorAll('[role="group"]');
  // answers=[]; 
+ await new Promise(r => setTimeout(r,15000));
+console.log("feedbacks");
 for ( j= 0; j < questions.length; j++) {
  
 console.log("questions"+j); // console.log(questions[j]); 
@@ -278,29 +295,30 @@ if(feedback[o].textContent.includes("Correct")){
   }//for
 // }//for
 console.log("answer_array"); console.log(answers);
-if(answers.length!==questions.length){
+if(answers.length<questions.length){
   console.log("answers count mistake"); } //if
 
+await new Promise(r => setTimeout(r,5000));
 // worked- attempt tryagain
 var attempt_btn = document.querySelector('div[data-e2e="AttemptPageTopBanner"]').querySelector("button");
     console.log(attempt_btn);
     attempt_btn.click();
 
 
-  } , 6000); //feedbacking
- } , 6000); //submitting
+  } //feedbacking
+ }  //submitting
 return answers;
 }//func-modal
 
 
-function select_answer() {
+async function select_answer() {
 console.log("answer submission");
 console.log(answers);
  q_other=0; // said to 0 to neutralize for every quiz loop
  try_start_resume_btn = document.querySelector('a[aria-labelledby ="Try again"]') || document.querySelector('button[aria-labelledby="Start assignment"]') || document.querySelector('button[aria-labelledby="Resume assignment"]') ;
 try_start_resume_btn.click();
 
-setTimeout(function submitting() {
+  await new Promise(r => setTimeout(r,15000));
   console.log("opened");
 //worked- selected all questions
  questions = document.querySelectorAll('[class="rc-FormPartsQuestion"]');
@@ -336,7 +354,7 @@ options_text = options[k].parentElement.textContent;
 
   }else{
     q_other+=1;
-  }
+  }//elseif
   }//for
 
 //worked2 - agreed
@@ -351,7 +369,7 @@ submit_btn.click();
 console.log("submitted");
 
 
- } , 6000); //submitting
+
 }//func-ans
 
 
@@ -365,17 +383,17 @@ function quiz() {
 
 Promise.resolve()
   .then(() => modal(0,"checkbox"))
-  .then(() => delay(14000))
+  .then(() => delay(45000))
   .then(() => modal(0,"radio"))
-  .then(() => delay(14000))
+  .then(() => delay(45000))
   .then(() => modal(1,"radio"))
-  .then(() => delay(14000))
+  .then(() => delay(45000))
   .then(() => modal(2,"radio"))
-  .then(() => delay(14000))
+  .then(() => delay(45000))
   .then(() => modal(3,"radio"))
-  .then(() => delay(14000))
+  .then(() => delay(45000))
   .then(() => select_answer())
-  .then(() => delay(14000))
+  .then(() => delay(45000))
   .then(function() {
   
 console.log("repeated function");
@@ -393,12 +411,18 @@ for (s= 0;s < spans.length;s++) {
    // we got our latest grade 
    console.log(percent_got);
    break;
- } //if
+ }else if(spans[s].textContent=="Grade received"){
+     console.log(spans[s].textContent);
+     percent_got=parseFloat(spans[s+1].textContent);
+   // we got our latest grade 
+   console.log(percent_got);
+ }//elseif
 }//for
-
+console.log("q_count,q_other");
 console.log(q_count+","+q_other);
 // to know what is the percentage of textbox questions
 percent_other=((q_other * 100) / q_count).toFixed(2) ;
+console.log("percent_got,percent_other");
 console.log(percent_got+","+percent_other);
 /*
 to check all the questions other than text box are answerd, if not repeat whole loop
