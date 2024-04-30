@@ -12,7 +12,7 @@ console.log("reading section");
 }//for
 
 
-
+=======================================
 
 var link = "/learn/what-is-the-metaverse/lecture/ldoe8/welcome-to-the-metaverse";
 
@@ -37,26 +37,55 @@ var iframe_window = document.createElement("iframe");
 //document.body.appendChild(substack); //this line works but it away from the display in this site
 
 document.querySelector('[data-test="rc-periodPage"]').appendChild(iframe_window);
+
+
+// we can get the reference to the inner window
+    let iframeWindow = iframe_window.contentWindow; // OK
+    try {
+      // ...but not to the document inside it
+      let doc = iframe_window.contentDocument; // ERROR
+    } catch(e) {
+      alert(e); // Security Error (another origin)
+    }
+
+    // also we can't READ the URL of the page in iframe
+    try {
+      // Can't read URL from the Location object
+      let href = iframe_window.contentWindow.location.href; // ERROR
+    } catch(e) {
+      alert(e); // Security Error
+    }
+
+var x = document.getElementsByTagName("iframe");
+x[0].querySelector("video");
+var y = (x.contentWindow || x.contentDocument);
+if (y.document){y = y.document;}
+var test = y.getElementsByTagName("video");
+
+var s= parent.iframe_window.document;
+console.log(s);
+var media = s[0].document.getElementsByTagName("video");
+
+console.log(media.innerHTML);
+media.play();
+
+
+
+
  iframe_content = iframe_window.contentWindow.document;
+
+console.log(iframe_content);
+
+
 
 iframe_window.onload = function() {
 console.log("loaded");
+
 setTimeout(function() {
   
-
-const media = iframe_content.querySelector("video");
-// time is calculated in seconds
-media.currentTime = Math.floor(media.duration)-3;
-console.log(media.currentTime);
-media.play();
-//  ifr_fun();
 }, 3000);
 };//onload
 
 function ifr_fun() {
-const media = iframe_content.querySelector("video");
-// time is calculated in seconds
-media.currentTime = Math.floor(media.duration)-3;
-console.log(media.currentTime);
-media.play();
+
 }
