@@ -1,6 +1,9 @@
-answer=["An embodied internet", "The next generation of the internet", "A series of interconnected, immersive digital spaces ", "Interoperability", "It might give us the opportunity to reduce our impact on the environment by giving us options to avoid or reduce commuting or traveling.", "It might give us the opportunity to reduce negative environmental effects of construction and design.", "Open-source platforms", "Decentralization", "Through the use of avatars"];
-var try_start_resume_btn,questions,options,option_type,agree_btn,submit_btn,feedback,options_text,attempt_btn;
-var l,h,k,j,m,o;
+answer=["Some health diagnostics might take place virtually.", "Opportunities will increase to incorporate physical activity and fitness into our lives. ", "Some group and individual therapy sessions could take place virtually.", "Companies will focus on calculating engagement rather than conversion rate.", "Shopping will likely be more about discovery and less about destination.", "A one-of-a-kind digital record that proves an object’s authenticity", "All of the above"];
+//answer=[];
+var try_start_resume_btn,questions,options,option_type,agree_btn,submit_btn,feedback,options_text,attempt_btn,spans,NOanswer;
+var l,h,k,j,m,o,s;
+q_count=0,q_other=0, repeated=false;
+
 
 function select_answer() {
 console.log("answer loop");
@@ -12,7 +15,7 @@ setTimeout(function submitting() {
   console.log("opened");
 //worked- selected all questions
  questions = document.querySelectorAll('[class="rc-FormPartsQuestion"]');
- 
+ q_count=questions.length;
 // console.log(questions);
 //worked6- loop through question
 for ( l= 0; l < questions.length; l++) { 
@@ -25,7 +28,7 @@ for ( l= 0; l < questions.length; l++) {
 
  //worked-seperated input type
  if(options[0]){
-
+NOanswer=true;
       for ( k= 0; k < options.length; k++) {
 console.log("option "+k);
 options_text = options[k].parentElement.textContent;
@@ -33,28 +36,36 @@ options_text = options[k].parentElement.textContent;
         if (answer.includes(options_text)) {
           console.log(options_text); 
           options[k].parentElement.click(); //worked-seleted options
-        }//if
+          NOanswer=false; 
+            // if there is no answer until last  NOanswer=true so next if runs
+        }else if(k==(options.length-1) && NOanswer==true){
+          console.log("No answer"); 
+          // if there is no answer until last option select last option it will helps if it 5 options
+          options[k].parentElement.click();
+        }
 
       }//for
 
-  }//if
+  }else{
+    q_other+=1;
+  }
   }//for
 
 
 //worked2 - agreed
  agree_btn = document.querySelector('span[id="agreement-checkbox-base-label-text"]');
-agree_btn.click();
+//agree_btn.click();
 console.log("agreed");
 
 //worked-delyed submission
 
  
  submit_btn = document.querySelector('button[data-test="submit-button"]');
-submit_btn.click();
+//submit_btn.click();
 console.log("submitted");
+console.log(q_count+","+q_other);
+return q_count,q_other;
 
-
- 
  } , 6000); //submitting
 }//func
 select_answer();
