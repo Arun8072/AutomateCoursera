@@ -3,7 +3,15 @@ const try_start_resume_btn = document.querySelector('a[aria-labelledby ="Try aga
 try_start_resume_btn.click();
 console.log("opened");
 
+/* ========== */
+var modal = document.querySelector('[class="ReactModalPortal"]');
+modal.onload=function () {
+  alert();
+}
+/*=======*/
 //answer = [[],[],[],[],[],[],[],[],[],[]];
+
+setTimeout(function submitting() {
 //worked- selected all questions
 var questions = document.querySelectorAll('[role="group"]');
  answer=[];
@@ -45,7 +53,7 @@ submit_btn.click();
 console.log("submitted");
     
 //feedback loop
-
+setTimeout(function feedbacking() {
  //var questions = document.querySelectorAll('[role="group"]');
  // answer=[]; 
 for (let j= 0; j < questions.length; j++) {
@@ -87,7 +95,6 @@ var attempt_btn = document.querySelector('div[data-e2e="AttemptPageTopBanner"]')
 //worked- clicked try again
  var try_again = document.querySelector('a[aria-labelledby ="Try again"]');
  try_again.click();
- 
- 
- 
+  } , 3000);
+ } , 5000);
  

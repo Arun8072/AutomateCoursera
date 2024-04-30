@@ -11,7 +11,9 @@
 //24may = 1:35-2;05,6:00-7:00
 //25May = 4:35-4:45,5:00-6:30,11:15-11:45,1:40-3:25
 //26may = 6:00-7:30,
-//29may = 8:20-
+//29may = 8:20-8:50,
+
+
 //worked - combination of three buttons , select which is present
 const try_start_resume_btn = document.querySelector('a[aria-labelledby ="Try again"]') || document.querySelector('button[aria-labelledby="Start assignment"]') || document.querySelector('button[aria-labelledby="Resume assignment"]') ;
 try_start_resume_btn.click();
