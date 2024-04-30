@@ -1,20 +1,4 @@
-//12 may = 9:30 - 11:30 ,12:30-3:45
-//13 may = 12:00 - 1:30,4:30-5:30 , 10:45 - 1:30
-//14may = 4:40-6:15 , 10:15-12:00
-//15may = 9:05-11:00
-//17may = 12:30-2:30,3-4,5:45-6:30, 12:50-1:00,
-//18may = 9:20-1:30
-//19may = 3:00-5:00
-//20may = 1:00-2:30,3:00-6:00,7:20-8:00,
-//22may = 1:45-2:15
-//23may = 1:40-2:20,
-//24may = 1:35-2;05,6:00-7:00
-//25May = 4:35-4:45,5:00-6:30,11:15-11:45,1:40-3:25
-//26may = 6:00-7:30,
-//29may = 8:20-8:50,
-//14jun = 5-6,7:00-7:15
-//15jun = 5:15-6:30
-//16jun = 1:00-2:15,5:15-5;30,6:45-
+
 
 //worked - combination of three buttons , select which is present
 const try_start_resume_btn = document.querySelector('a[aria-labelledby ="Try again"]') || document.querySelector('button[aria-labelledby="Start assignment"]') || document.querySelector('button[aria-labelledby="Resume assignment"]') ;
@@ -250,7 +234,8 @@ console.log("reading");
 
 
 //worked - looped through all weeks
-const weeks = document.querySelector('div[id="cds-react-aria-106-accordion-panel"]').querySelectorAll('li');
+//const weeks = document.querySelector('div[id="cds-react-aria-106-accordion-panel"]').querySelectorAll('li');
+const weeks = document.querySelector('div[title="Course Material"]').querySelectorAll('li');
 for(var j=0;j<weeks.length;j++){
 
     console.log(weeks[j]);

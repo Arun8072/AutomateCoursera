@@ -75,6 +75,7 @@ console.log(links[k]);
 //worked-opened iframe
 //var links="/learn/what-is-the-metaverse/lecture/7dRj9/this-is-the-metaverse";
 var links = "/learn/what-is-the-metaverse/supplement/S7xQm/field-trip-the-creator-economy";
+//var links = "/learn/what-is-the-metaverse/lecture/tmXVH/educational-potential-in-the-metaverse";
 
 var iframe_window = document.createElement("iframe");
 	iframe_window.src=links;
