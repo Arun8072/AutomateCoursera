@@ -343,3 +343,29 @@ var options_text= question.querySelectorAll(".rc-Option");
     console.log(options_text);
 console.log(options_text[i].textContent);
 */
+
+//worked selected all weeks
+const weeks = document.querySelectorAll('a[data-test="rc-WeekNavigationItem"]');
+for(var j=0;j<weeks.length;j++){
+
+    console.log(weeks[j]);
+    weeks[j].click();
+    
+}//for
+
+//worked-got previous next button
+//document.getElementsByClassName('rc-PreviousAndNextItem');
+next_btn=document.querySelector("a[aria-label='Next Item']");
+previous_btn=document.querySelector("a[aria-label='Previous Item']");
+
+
+//worked - got text from breadcrumbs
+crumbs=document.getElementsByClassName('breadcrumb-item');
+for (let i = 0; i < crumbs.length; i++) {
+  console.log(crumbs[i].textContent);
+}
+w_now=crumbs[1].textContent.match(/\d+/);
+w_now=w_now[0];
+s_now=crumbs[2].textContent;
+console.log(w_now);
+console.log(s_now);
