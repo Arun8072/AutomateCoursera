@@ -1,0 +1,8 @@
+quiz algorithm
+>function modal(i,category){
+
+>function select_answer(){
+
+>function delay(duration) {
+
+>function quiz() {
